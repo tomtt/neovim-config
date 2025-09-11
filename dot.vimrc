@@ -174,6 +174,8 @@ call plug#begin()
     Plug 'dense-analysis/ale'
     Plug 'vim-airline/vim-airline'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/neosnippet.vim'
+    Plug 'Shougo/neosnippet-snippets'
     Plug 'wsdjeg/vim-fetch'
 
     " Themes
@@ -244,4 +246,6 @@ nnoremap <Leader>ar <Plug>(ale_find_references)
 
 set completeopt+=fuzzy
 
-" Initialize configuration dictionary
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
