@@ -198,7 +198,7 @@ let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 let g:ale_fixers = {'ruby': ['rubocop']}
 let g:ale_ruby_ruby_lsp_use_bundler = 1
-" let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 
 colorscheme catppuccin-mocha
 let g:airline#extensions#ale#enabled = 1
