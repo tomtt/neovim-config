@@ -195,10 +195,25 @@ lua require('config')
 let @f = '/=fix3w"ayw"bdd/^pick a"bp0:s/^pick/fixup/2wr>zz/^fixup'
 
 let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
+let g:ale_linters = {'ruby': ['ruby_lsp', 'rubocop', 'ruby']}
 let g:ale_fixers = {'ruby': ['rubocop']}
-let g:ale_ruby_ruby_lsp_use_bundler = 1
+let g:ale_ruby_ruby_lsp_use_bundler = 0
+" Force-enable ALE's LSP client even if nvim-lspconfig is installed
+let g:ale_disable_lsp = 0
 let g:ale_fix_on_save = 1
+let g:ale_ruby_ruby_lsp_executable = expand('~/.rbenv/shims/ruby-lsp')
+
+nnoremap <Leader>aa <Plug>(ale_toggle)
+nnoremap <Leader>ae <Plug>(ale_enable)
+nnoremap <Leader>aj <Plug>(ale_next_wrap)
+nnoremap <Leader>ak <Plug>(ale_previous_wrap)
+nnoremap <Leader>al <Plug>(ale_last)
+nnoremap <Leader>af <Plug>(ale_fix)
+nnoremap <Leader>ad <Plug>(ale_go_to_definition)
+nnoremap <Leader>at <Plug>(ale_go_to_type_definition)
+nnoremap <Leader>ai <Plug>(ale_go_to_implementation)
+nnoremap <Leader>ar <Plug>(ale_find_references)
+
 
 colorscheme catppuccin-mocha
 let g:airline#extensions#ale#enabled = 1
@@ -232,17 +247,6 @@ nnoremap <Leader>cp :exe "colo " .. PrevColors()<CR>
 " call deoplete#custom#option('sources', {
 " \ '_': ['ale'],
 " \})
-
-nnoremap <Leader>aa <Plug>(ale_toggle)
-nnoremap <Leader>ae <Plug>(ale_enable)
-nnoremap <Leader>aj <Plug>(ale_next_wrap)
-nnoremap <Leader>ak <Plug>(ale_previous_wrap)
-nnoremap <Leader>al <Plug>(ale_last)
-nnoremap <Leader>af <Plug>(ale_fix)
-nnoremap <Leader>ad <Plug>(ale_go_to_definition)
-nnoremap <Leader>at <Plug>(ale_go_to_type_definition)
-nnoremap <Leader>ai <Plug>(ale_go_to_implementation)
-nnoremap <Leader>ar <Plug>(ale_find_references)
 
 set completeopt+=fuzzy
 
