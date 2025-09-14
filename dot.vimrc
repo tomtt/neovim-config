@@ -52,8 +52,8 @@ autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
-set colorcolumn=101,131
-set textwidth=100
+set colorcolumn=131
+set textwidth=130
 set formatoptions=croqj
 augroup KeepBuiltinGq
   autocmd!
