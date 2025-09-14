@@ -12,3 +12,13 @@ options word
 
 snippet bp
   binding.pry
+
+snippet tstcomp
+options word
+  require 'test_helper'
+
+  class ${1:#:ClassName}ComponentTest < ComponentTestCase
+    test '${2:#:subject}' do
+      ${0:TARGET}
+    end
+  end
