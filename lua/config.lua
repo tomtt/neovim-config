@@ -6,11 +6,11 @@ require('lspconfig').ruby_lsp.setup({
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {silent = true})
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, {silent = true})
 
-require('nvim-treesitter.configs').setup{
-  ensure_installed = { 'ruby', 'lua', 'vim', 'bash', 'json', 'yaml' },
-  highlight = { enable = true },
-  indent    = { enable = true },
-}
+-- require('nvim-treesitter.configs').setup{
+--   ensure_installed = { 'ruby', 'lua', 'vim', 'bash', 'json', 'yaml' },
+--   highlight = { enable = true },
+--   indent    = { enable = true },
+-- }
 -- Treesitter folds
 -- vim.o.foldmethod = 'expr'
 -- vim.o.foldexpr   = 'nvim_treesitter#foldexpr()'
