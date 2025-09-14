@@ -246,6 +246,14 @@ set wildmenu
 set wildoptions+=fuzzy
 
 nnoremap <Leader>ra <C-W>o:AV<cr>
+nnoremap <Leader>rm :Emodel<Space>
+nnoremap <Leader>rc :Econtroller<Space>
+nnoremap <Leader>rl :Elocale<Space>
+nnoremap <Leader>rn :Elocale nl<cr>
+nnoremap <Leader>rv :Eview<Space>
+nnoremap <Leader>rs :Eschema<Space>
+nnoremap <Leader>ri :Emigration<Space>
+nnoremap <Leader>rt :Rails test<cr>
 
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
