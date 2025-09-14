@@ -167,15 +167,13 @@ call plug#begin()
     Plug 'tpope/vim-endwise'
     Plug 'ervandew/supertab'
     Plug 'tpope/vim-rails'
-    Plug 'williamboman/mason.nvim'
-    Plug 'williamboman/mason-lspconfig.nvim'
-    Plug 'neovim/nvim-lspconfig'
+    " Plug 'williamboman/mason.nvim'
+    " Plug 'williamboman/mason-lspconfig.nvim'
+    " Plug 'neovim/nvim-lspconfig'
     Plug 'preservim/nerdtree'
     Plug 'dense-analysis/ale'
     Plug 'vim-airline/vim-airline'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    " Plug 'hackhowtofaq/vim-solargraph'
-    " Plug 'uplus/deoplete-solargraph'
     Plug 'wsdjeg/vim-fetch'
 
     " Themes
@@ -193,8 +191,9 @@ lua require('config')
 let @f = '/=fix3w"ayw"bdd/^pick a"bp0:s/^pick/fixup/2wr>zz/^fixup'
 
 let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_linters = {'ruby': ['rubocop']}
+let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 let g:ale_fixers = {'ruby': ['rubocop']}
+let g:ale_ruby_ruby_lsp_use_bundler = 1
 " let g:ale_fix_on_save = 1
 
 colorscheme sonokai
