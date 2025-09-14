@@ -19,6 +19,8 @@ require('nvim-treesitter.configs').setup{
         ["am"] = "@function.outer",   -- method outer
         ["iM"] = "@class.inner",
         ["aM"] = "@class.outer",
+        ["ir"] = "@block.inner",
+        ["ar"] = "@block.outer",
       },
     },
   },
