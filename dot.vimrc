@@ -176,6 +176,7 @@ call plug#begin()
     Plug 'wsdjeg/vim-fetch'
     Plug 'tpope/vim-scriptease'
     Plug 'folke/which-key.nvim'
+    Plug 'psliwka/vim-smoothie'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
