@@ -267,3 +267,30 @@ runtime plugin/fetch.vim
 
 set foldmethod=syntax
 set foldlevelstart=99
+" function to create an alternate file if it does not exist
+function! s:AlternateOrCreate() abort
+  " Need projectionist for reliable alternates
+  if !exists('*projectionist#query')
+    try | A | catch | echoerr 'No alternate (Projectionist not available).' | endtry
+    return
+  endif
+
+  " Get the resolved alternate path for the current buffer
+  let alts = projectionist#query('alternate')   " -> [ [root, resolved_path], ... ]
+  if type(alts) != type([]) || empty(alts) || empty(alts[0][1])
+    echoerr 'No alternate mapping for this file.'
+    return
+  endif
+  let alt = alts[0][1]
+
+  " If it exists, just open it; else create it and drop in the template
+  if filereadable(alt)
+    execute 'edit' fnameescape(alt)
+  else
+    call mkdir(fnamemodify(alt, ':h'), 'p')
+    execute 'edit' fnameescape(alt)
+    " If a template is defined in your projections, apply it
+    silent! AD
+  endif
+endfunction
+nnoremap <silent> <leader>rA :call <SID>AlternateOrCreate()<CR>
