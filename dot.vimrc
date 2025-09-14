@@ -33,18 +33,16 @@ map <leader>t :NERDTreeToggle<CR>
 map <leader>T :NERDTreeFind<CR>
 map <leader>B :TagbarToggle<CR>
 
-" map leader F to search
-map <leader>F :Ag<SPACE>
+" map leader f to search
+nnoremap <leader>ff :Telescope find_files<CR>
+nnoremap <leader>fg :Telescope live_grep<CR>
+nnoremap <leader>fb :Telescope buffers<CR>
+nnoremap <leader>fh :Telescope help_tags<CR>
+nnoremap <leader>fc :cclose<cr>
 
-" Use The Silver Searcher if available
-" https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-  cnoreabbrev ag Ack
-  cnoreabbrev aG Ack
-  cnoreabbrev Ag Ack
-  cnoreabbrev AG Ack
-endif
+" Mapping CtrlP command
+nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
+nnoremap <Leader>p :Telescope find_files<CR>
 
 noremap <Leader>de O(require('pry'); binding.pry)<ESC>+
 autocmd FileType javascript noremap <Leader>de Oeval(require('pryjs').it);<ESC>+
@@ -141,10 +139,6 @@ nnoremap \\ek :m .-2<CR>==
 inoremap \\ek <Esc>:m .-2<CR>==gi
 vnoremap \\ek :m '<-2<CR>gv=gv
 
-" Mapping CtrlP command
-nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
-nnoremap <Leader>p :<C-U>CtrlP<CR>
-
 " Move cursor to first non-blank column of the line
 set startofline
 
@@ -160,7 +154,11 @@ call plug#begin()
     Plug 'mileszs/ack.vim'
     Plug 'slim-template/vim-slim'
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'BurntSushi/ripgrep'
+    Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'sharkdp/fd'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-abolish'
