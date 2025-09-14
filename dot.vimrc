@@ -159,8 +159,6 @@ call plug#begin()
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'tomtom/tcomment_vim'
     Plug 'mileszs/ack.vim'
-    Plug 'lifepillar/vim-solarized8'
-    Plug 'morhetz/gruvbox'
     Plug 'slim-template/vim-slim'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'tpope/vim-fugitive'
@@ -175,10 +173,17 @@ call plug#begin()
     Plug 'preservim/nerdtree'
     Plug 'dense-analysis/ale'
     Plug 'vim-airline/vim-airline'
-    " Plug 'maximbaz/lightline-ale'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " Plug 'hackhowtofaq/vim-solargraph'
     " Plug 'uplus/deoplete-solargraph'
+
+    " Themes
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    Plug 'rebelot/kanagawa.nvim'
+    Plug 'lifepillar/vim-solarized8'
+    Plug 'morhetz/gruvbox'
+    Plug 'sainnhe/gruvbox-material'
+    Plug 'sainnhe/sonokai'
 call plug#end()
 
 lua require('config')
@@ -191,7 +196,17 @@ let g:ale_linters = {'ruby': ['rubocop']}
 let g:ale_fixers = {'ruby': ['rubocop']}
 " let g:ale_fix_on_save = 1
 
+colorscheme sonokai
 let g:airline#extensions#ale#enabled = 1
+let g:airline_theme = 'catppuccin'
+
+nnoremap <Leader>cs :colorscheme slate<cr>
+nnoremap <Leader>cc :colorscheme catppuccin-mocha<cr>
+nnoremap <Leader>cw :colorscheme kanagawa-wave<cr>
+nnoremap <Leader>cl :colorscheme kanagawa-lotus<cr>
+nnoremap <Leader>cg :colorscheme gruvbox<cr>
+nnoremap <Leader>cm :colorscheme gruvbox-material<cr>
+nnoremap <Leader>ck :colorscheme sonokai<cr>
 
 let g:deoplete#enable_at_startup = 1
 
