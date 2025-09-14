@@ -183,6 +183,8 @@ call plug#begin()
     Plug 'morhetz/gruvbox'
     Plug 'sainnhe/gruvbox-material'
     Plug 'sainnhe/sonokai'
+    Plug 'tpope/vim-vividchalk' " accentuates rails.vim extensions
+    Plug 'jpo/vim-railscasts-theme'
 call plug#end()
 
 lua require('config')
@@ -196,23 +198,38 @@ let g:ale_fixers = {'ruby': ['rubocop']}
 let g:ale_ruby_ruby_lsp_use_bundler = 1
 " let g:ale_fix_on_save = 1
 
-colorscheme sonokai
+colorscheme catppuccin-mocha
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme = 'catppuccin'
 
-nnoremap <Leader>cs :colorscheme slate<cr>
-nnoremap <Leader>cc :colorscheme catppuccin-mocha<cr>
-nnoremap <Leader>cw :colorscheme kanagawa-wave<cr>
-nnoremap <Leader>cl :colorscheme kanagawa-lotus<cr>
+nnoremap <Leader>cc :colorscheme catppuccin-mocha<cr> " Default colorscheme is bound as <L>cc
+nnoremap <Leader>ct :colorscheme catppuccin-mocha<cr>
 nnoremap <Leader>cg :colorscheme gruvbox<cr>
-nnoremap <Leader>cm :colorscheme gruvbox-material<cr>
 nnoremap <Leader>ck :colorscheme sonokai<cr>
+nnoremap <Leader>cl :colorscheme kanagawa-lotus<cr>
+nnoremap <Leader>cm :colorscheme gruvbox-material<cr>
+nnoremap <Leader>cs :colorscheme slate<cr>
+nnoremap <Leader>cv :colorscheme vividchalk<cr>
+nnoremap <Leader>cr :colorscheme railscasts<cr>
+nnoremap <Leader>cw :colorscheme kanagawa-wave<cr>
 
-let g:deoplete#enable_at_startup = 1
+let g:colors = getcompletion('', 'color')
+func! NextColors()
+    let idx = index(g:colors, g:colors_name)
+    return (idx + 1 >= len(g:colors) ? g:colors[0] : g:colors[idx + 1])
+endfunc
+func! PrevColors()
+    let idx = index(g:colors, g:colors_name)
+    return (idx - 1 < 0 ? g:colors[-1] : g:colors[idx - 1])
+endfunc
+nnoremap <Leader>cn :exe "colo " .. NextColors()<CR>
+nnoremap <Leader>cp :exe "colo " .. PrevColors()<CR>
 
-call deoplete#custom#option('sources', {
-\ '_': ['ale'],
-\})
+" let g:deoplete#enable_at_startup = 1
+"
+" call deoplete#custom#option('sources', {
+" \ '_': ['ale'],
+" \})
 
 nnoremap <Leader>aa <Plug>(ale_toggle)
 nnoremap <Leader>ae <Plug>(ale_enable)
