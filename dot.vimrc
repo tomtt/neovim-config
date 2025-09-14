@@ -171,7 +171,7 @@ call plug#begin()
     Plug 'preservim/nerdtree'
     Plug 'dense-analysis/ale'
     Plug 'vim-airline/vim-airline'
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
     Plug 'wsdjeg/vim-fetch'
@@ -233,11 +233,11 @@ endfunc
 nnoremap <Leader>cn :exe "colo " .. NextColors()<CR>
 nnoremap <Leader>cp :exe "colo " .. PrevColors()<CR>
 
-" let g:deoplete#enable_at_startup = 1
-"
-" call deoplete#custom#option('sources', {
-" \ '_': ['ale'],
-" \})
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#option('sources', {
+\ '_': ['vim.lsp'],
+\})
 
 set completeopt+=fuzzy
 
