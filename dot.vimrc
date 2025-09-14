@@ -213,6 +213,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_theme = 'catppuccin'
 
 nnoremap <Leader>cc :colorscheme catppuccin-mocha<cr> " Default colorscheme is bound as <L>cc
+nnoremap <Leader>cd :colorscheme desert<cr>
 nnoremap <Leader>ct :colorscheme catppuccin-mocha<cr>
 nnoremap <Leader>cg :colorscheme gruvbox<cr>
 nnoremap <Leader>ck :colorscheme sonokai<cr>
