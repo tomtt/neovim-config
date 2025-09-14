@@ -177,6 +177,7 @@ call plug#begin()
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
     Plug 'wsdjeg/vim-fetch'
+    Plug 'tpope/vim-scriptease'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
