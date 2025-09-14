@@ -156,7 +156,6 @@ set clipboard=unnamedplus
 
 " Vim-plug 
 call plug#begin()
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'tomtom/tcomment_vim'
     Plug 'mileszs/ack.vim'
     Plug 'slim-template/vim-slim'
