@@ -176,6 +176,7 @@ call plug#begin()
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " Plug 'hackhowtofaq/vim-solargraph'
     " Plug 'uplus/deoplete-solargraph'
+    Plug 'wsdjeg/vim-fetch'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
