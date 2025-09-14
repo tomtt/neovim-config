@@ -259,5 +259,8 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+" ensure fetch is reloaded when sourcing .vimrc
+runtime plugin/fetch.vim
+
 set foldmethod=syntax
 set foldlevelstart=99
