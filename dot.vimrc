@@ -160,6 +160,7 @@ call plug#begin()
     Plug 'mileszs/ack.vim'
     Plug 'slim-template/vim-slim'
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-abolish'
