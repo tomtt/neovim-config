@@ -174,6 +174,7 @@ call plug#begin()
     Plug 'Shougo/neosnippet-snippets'
     Plug 'wsdjeg/vim-fetch'
     Plug 'tpope/vim-scriptease'
+    Plug 'folke/which-key.nvim'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
