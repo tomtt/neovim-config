@@ -265,8 +265,6 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " ensure fetch is reloaded when sourcing .vimrc
 runtime plugin/fetch.vim
 
-set foldmethod=syntax
-set foldlevelstart=99
 " function to create an alternate file if it does not exist
 function! s:AlternateOrCreate() abort
   " Need projectionist for reliable alternates
