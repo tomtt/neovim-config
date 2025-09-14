@@ -225,4 +225,6 @@ nnoremap <Leader>at <Plug>(ale_go_to_type_definition)
 nnoremap <Leader>ai <Plug>(ale_go_to_implementation)
 nnoremap <Leader>ar <Plug>(ale_find_references)
 
+set completeopt+=fuzzy
+
 " Initialize configuration dictionary
