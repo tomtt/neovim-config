@@ -208,11 +208,11 @@ nnoremap <Leader>ak <Plug>(ale_previous_wrap)
 nnoremap <Leader>al <Plug>(ale_last)
 nnoremap <Leader>af <Plug>(ale_fix)
 
-colorscheme catppuccin-mocha
+colorscheme desert
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme = 'catppuccin'
 
-nnoremap <Leader>cc :colorscheme catppuccin-mocha<cr> " Default colorscheme is bound as <L>cc
+nnoremap <Leader>cc :colorscheme desert<cr> " Default colorscheme is bound as <L>cc
 nnoremap <Leader>cd :colorscheme desert<cr>
 nnoremap <Leader>ct :colorscheme catppuccin-mocha<cr>
 nnoremap <Leader>cg :colorscheme gruvbox<cr>
