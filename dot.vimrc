@@ -1,5 +1,6 @@
 """ Coloring
 syntax on
+set termguicolors
 
 """ Other Configurations
 filetype plugin indent on
@@ -116,7 +117,6 @@ set softtabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
-set ttyfast
 set lazyredraw  " prevent redraws while executing
 
 " Display extra whitespace
@@ -239,7 +239,9 @@ call deoplete#custom#option('sources', {
 \ '_': ['vim.lsp'],
 \})
 
-set completeopt+=fuzzy
+set completeopt=menu,menuone,noselect,noinsert
+set wildmenu
+set wildoptions+=fuzzy
 
 nnoremap <Leader>ra <C-W>o:AV<cr>
 
