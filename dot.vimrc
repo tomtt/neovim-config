@@ -246,6 +246,8 @@ nnoremap <Leader>ar <Plug>(ale_find_references)
 
 set completeopt+=fuzzy
 
+nnoremap <Leader>ra <C-W>o:AV<cr>
+
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
