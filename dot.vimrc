@@ -173,7 +173,7 @@ call plug#begin()
     Plug 'preservim/nerdtree'
     Plug 'dense-analysis/ale'
     Plug 'vim-airline/vim-airline'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
     Plug 'wsdjeg/vim-fetch'
