@@ -54,11 +54,12 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 set colorcolumn=131
 set textwidth=130
 set formatoptions=croqj
-augroup KeepBuiltinGq
-  autocmd!
-  " When any LSP client attaches, restore builtin gq behavior
-  autocmd LspAttach * setlocal formatexpr= | setlocal formatprg=
-augroup END
+
+" augroup KeepBuiltinGq
+"   autocmd!
+"   " When any LSP client attaches, restore builtin gq behavior
+"   autocmd LspAttach * setlocal formatexpr= | setlocal formatprg=
+" augroup END
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
