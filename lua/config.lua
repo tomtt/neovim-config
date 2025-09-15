@@ -26,6 +26,48 @@ require('nvim-treesitter.configs').setup{
   },
 }
 
+-- ]m/[m for method navigation (Tree-sitter, robust)
+local function goto_method(next_dir)
+  local ts = vim.treesitter
+  local bufnr = 0
+  local cursor_row = vim.api.nvim_win_get_cursor(0)[1] - 1
+
+  local parser = ts.get_parser(bufnr, "ruby")
+  if not parser then return end
+  local root = parser:parse()[1]:root()
+
+  -- One capture name + two alternatives
+  local query = ts.query.parse("ruby", [[
+    [
+      (method)
+      (singleton_method)
+    ] @m
+  ]])
+
+  local best -- store the best start row we found
+  for id, node in query:iter_captures(root, bufnr, 0, -1) do
+    if query.captures[id] == "m" and node then
+      local sr = node:range() -- start_row, start_col, end_row, end_col (we only need start_row)
+      if next_dir then
+        if sr > cursor_row and (not best or sr < best) then best = sr end
+      else
+        if sr < cursor_row and (not best or sr > best) then best = sr end
+      end
+    end
+  end
+
+  if best then
+    vim.api.nvim_win_set_cursor(0, { best + 1, 0 })
+  end
+end
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "ruby",
+  callback = function()
+    vim.keymap.set("n", "]m", function() goto_method(true) end,  { buffer=true, desc="Next method" })
+    vim.keymap.set("n", "[m", function() goto_method(false) end, { buffer=true, desc="Prev method" })
+  end,
+})
+
 -- default mappings for leap
 require('leap').set_default_mappings()
 
