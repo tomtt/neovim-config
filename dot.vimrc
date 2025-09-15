@@ -29,8 +29,8 @@ let mapleader="\<Space>"
 nmap \ <leader>q
 
 nnoremap <leader>s :w<cr>
-map <leader>t :NERDTreeToggle<CR>
-map <leader>T :NERDTreeFind<CR>
+map <leader>n :NERDTreeToggle<CR>
+map <leader>N :NERDTreeFind<CR>
 map <leader>B :TagbarToggle<CR>
 
 " map leader f to search
@@ -191,6 +191,10 @@ call plug#begin()
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'ggandor/leap.nvim'
+    Plug 'antoinemadec/FixCursorHold.nvim'
+    Plug 'nvim-neotest/nvim-nio'
+    Plug 'nvim-neotest/neotest'
+    Plug 'zidhuss/neotest-minitest'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
