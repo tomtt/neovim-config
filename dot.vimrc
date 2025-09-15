@@ -172,18 +172,21 @@ call plug#begin()
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-projectionist'
     Plug 'tpope/vim-scriptease'
-    Plug 'ervandew/supertab'
+    " Plug 'ervandew/supertab'
     Plug 'neovim/nvim-lspconfig'
     Plug 'preservim/nerdtree'
     Plug 'dense-analysis/ale'
     Plug 'vim-airline/vim-airline'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
     Plug 'wsdjeg/vim-fetch'
     Plug 'folke/which-key.nvim'
     Plug 'psliwka/vim-smoothie'
     Plug 'chrisgrieser/nvim-various-textobjs'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
@@ -197,6 +200,7 @@ call plug#begin()
 call plug#end()
 
 lua require('config')
+lua require('completion')
 
 " Automatically place a git "=fix" line under the line with the matching sha
 let @f = '/=fix3w"ayw"bdd/^pick a"bp0:s/^pick/fixup/2wr>zz/^fixup'
@@ -207,6 +211,8 @@ let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 let g:ale_fixers = {'ruby': ['rubocop']}
 let g:ale_ruby_ruby_lsp_use_bundler = 1
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 0
+
 nnoremap <Leader>aa <Plug>(ale_toggle)
 nnoremap <Leader>ae <Plug>(ale_enable)
 nnoremap <Leader>aj <Plug>(ale_next_wrap)
@@ -242,13 +248,8 @@ endfunc
 nnoremap <Leader>cn :exe "colo " .. NextColors()<CR>
 nnoremap <Leader>cp :exe "colo " .. PrevColors()<CR>
 
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#option('sources', {
-\ '_': ['vim.lsp'],
-\})
-
 set completeopt=menu,menuone,noselect,noinsert
+set shortmess+=c
 set wildmenu
 set wildoptions+=fuzzy
 
