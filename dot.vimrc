@@ -171,6 +171,7 @@ call plug#begin()
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-projectionist'
+    Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-scriptease'
     " Plug 'ervandew/supertab'
     Plug 'neovim/nvim-lspconfig'
@@ -187,6 +188,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
+    Plug 'ggandor/leap.nvim'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }

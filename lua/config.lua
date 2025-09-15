@@ -26,6 +26,9 @@ require('nvim-treesitter.configs').setup{
   },
 }
 
+-- default mappings for leap
+require('leap').set_default_mappings()
+
 -- Treesitter folds
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
