@@ -44,6 +44,7 @@ nnoremap <silent> <leader>fm :Telescope lsp_document_symbols symbols=method,func
 nnoremap <silent> <leader>ft :Telescope treesitter<CR>
 " List lsp references
 nnoremap <silent> <leader>fr :Telescope lsp_references<CR>
+nnoremap <leader>fj :Telescope jumplist<CR>
 nnoremap <leader>fc :cclose<cr>
 
 " Mapping CtrlP command
@@ -147,7 +148,7 @@ inoremap \\ek <Esc>:m .-2<CR>==gi
 vnoremap \\ek :m '<-2<CR>gv=gv
 
 " Move cursor to first non-blank column of the line
-set startofline
+set nostartofline
 
 " Extentions to look for when using `gf`
 set suffixesadd+=.tsx,.ts,.js,.jsx,.scss,.css,.json
