@@ -71,7 +71,9 @@ vim.api.nvim_create_autocmd("FileType", {
 -- default mappings for leap
 require('leap').set_default_mappings()
 
-require('which-key').setup({})
+require("which-key").setup({
+  disable = { filetypes = { "TelescopePrompt" } },
+})
 
 -- neotest config
 local neotest = require("neotest")
