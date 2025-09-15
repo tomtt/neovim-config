@@ -35,22 +35,22 @@ map <leader>N :NERDTreeFind<CR>
 map <leader>B :TagbarToggle<CR>
 
 " map leader f to search
-nnoremap <leader>ff :Telescope find_files<CR>
-nnoremap <leader>fg :Telescope live_grep<CR>
-nnoremap <leader>fb :Telescope buffers<CR>
-nnoremap <leader>fh :Telescope help_tags<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>fh <cmd>Telescope help_tags<CR>
 " List methods in the current buffer via LSP and jump
-nnoremap <silent> <leader>fm :Telescope lsp_document_symbols symbols=method,function<CR>
+nnoremap <silent> <leader>fm <cmd>Telescope lsp_document_symbols symbols=method,function<CR>
 " List functions/methods from the syntax tree
-nnoremap <silent> <leader>ft :Telescope treesitter<CR>
+nnoremap <silent> <leader>ft <cmd>Telescope treesitter<CR>
 " List lsp references
-nnoremap <silent> <leader>fr :Telescope lsp_references<CR>
-nnoremap <leader>fj :Telescope jumplist<CR>
+nnoremap <silent> <leader>fr <cmd>Telescope lsp_references<CR>
+nnoremap <leader>fj <cmd>Telescope jumplist<CR>
 nnoremap <leader>fc :cclose<cr>
 
 " Mapping CtrlP command
 nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
-nnoremap <Leader>p :Telescope find_files<CR>
+nnoremap <Leader>p <cmd>Telescope find_files<CR>
 
 noremap <Leader>de O(require('pry'); binding.pry)<ESC>+
 autocmd FileType javascript noremap <Leader>de Oeval(require('pryjs').it);<ESC>+
