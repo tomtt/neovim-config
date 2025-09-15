@@ -42,6 +42,8 @@ nnoremap <leader>fh :Telescope help_tags<CR>
 nnoremap <silent> <leader>fm :Telescope lsp_document_symbols symbols=method,function<CR>
 " List functions/methods from the syntax tree
 nnoremap <silent> <leader>ft :Telescope treesitter<CR>
+" List lsp references
+nnoremap <silent> <leader>fr :Telescope lsp_references<CR>
 nnoremap <leader>fc :cclose<cr>
 
 " Mapping CtrlP command
