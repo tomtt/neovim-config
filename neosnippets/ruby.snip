@@ -10,6 +10,10 @@ snippet dro
 options word
   option :${1:#:variable}
 
+snippet drod
+options word
+  option :${1:#:variable}, default: -> {}
+
 snippet bp
   binding.pry
 
