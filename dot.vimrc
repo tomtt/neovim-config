@@ -258,6 +258,8 @@ nnoremap <Leader>rs :Eschema<Space>
 nnoremap <Leader>ri :Emigration<Space>
 nnoremap <Leader>rt :Rails test<cr>
 
+nnoremap <silent> <leader>zr :<C-u>normal! varzc<CR>
+
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
