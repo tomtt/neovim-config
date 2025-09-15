@@ -23,6 +23,7 @@ let g:NERDTreeIgnore = ['^node_modules$', '^.git$']
 let NERDTreeMouseMode = 3 " Single mouseclick
 
 """ Filetype-Specific Configurations
+let g:no_ruby_maps = 1
 
 """ Custom Mappings
 let mapleader="\<Space>"
@@ -168,6 +169,7 @@ call plug#begin()
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'sharkdp/fd'
+    Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-abolish'
