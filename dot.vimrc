@@ -294,3 +294,87 @@ function! s:AlternateOrCreate() abort
   endif
 endfunction
 nnoremap <silent> <leader>rA :call <SID>AlternateOrCreate()<CR>
+
+" --- Helpers: select to the Nth next/prev uppercase OR underscore OR dash ---
+function! OpToNextCU(include, cnt) abort
+  let pat   = '\C[A-Z_-]'     " change this to '\u' if you want uppercase-only
+  let save  = getpos('.')
+  let line0 = line('.')
+
+  " start a visual selection so the pending operator uses it
+  normal! v
+
+  let i = a:cnt
+  while i > 0
+    " W = no wrap; also keep it on the same line (t/f semantics)
+    if search(pat, 'W') == 0 || line('.') != line0
+      normal! v | call setpos('.', save) | return
+    endif
+    let i -= 1
+  endwhile
+
+  " t-like: stop BEFORE the match; f-like: include the match
+  if !a:include && col('.') > 1
+    normal! h
+  endif
+endfunction
+
+function! OpToPrevCU(include, cnt) abort
+  let pat   = '\C[A-Z_-]'
+  let save  = getpos('.')
+  let line0 = line('.')
+
+  normal! v
+
+  let i = a:cnt
+  while i > 0
+    if search(pat, 'bW') == 0 || line('.') != line0
+      normal! v | call setpos('.', save) | return
+    endif
+    let i -= 1
+  endwhile
+
+  " T-like: stop just AFTER the match; F-like: include the match
+  if !a:include && col('.') < col('$') - 1
+    normal! l
+  endif
+endfunction
+
+" --- Dispatcher: make t/f/T/F recognize the special <C-u> variant with counts ---
+function! Op_dispatch_t() abort
+  let c = getcharstr()
+  if c ==# "\<C-u>"
+    return "\<Cmd>call OpToNextCU(0," . v:count1 . ")\<CR>"
+  endif
+  return 't' . c
+endfunction
+
+function! Op_dispatch_f() abort
+  let c = getcharstr()
+  if c ==# "\<C-u>"
+    return "\<Cmd>call OpToNextCU(1," . v:count1 . ")\<CR>"
+  endif
+  return 'f' . c
+endfunction
+
+function! Op_dispatch_T() abort
+  let c = getcharstr()
+  if c ==# "\<C-u>"
+    return "\<Cmd>call OpToPrevCU(0," . v:count1 . ")\<CR>"
+  endif
+  return 'T' . c
+endfunction
+
+function! Op_dispatch_F() abort
+  let c = getcharstr()
+  if c ==# "\<C-u>"
+    return "\<Cmd>call OpToPrevCU(1," . v:count1 . ")\<CR>"
+  endif
+  return 'F' . c
+endfunction
+
+" Operator-pending expression mappings
+onoremap <silent> <expr> t Op_dispatch_t()
+onoremap <silent> <expr> f Op_dispatch_f()
+onoremap <silent> <expr> T Op_dispatch_T()
+onoremap <silent> <expr> F Op_dispatch_F()
