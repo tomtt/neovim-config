@@ -1,0 +1,10 @@
+{
+  "app/views/components/*.rb": {
+    "type": "component",
+    "alternate": "test/components/{}_test.rb"
+  },
+  "test/components/*_test.rb": {
+    "type": "test",
+    "alternate": "app/views/components/{}.rb"
+  }
+}
