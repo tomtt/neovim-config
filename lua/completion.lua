@@ -39,6 +39,7 @@ cmp.setup({
       name = "buffer",
       priority = 250,
       option = {
+        keyword_pattern = [[\k\+]],
         -- Only small, relevant buffers (skip logs / huge files)
         get_bufnrs = function()
           local bufs = {}

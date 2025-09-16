@@ -22,6 +22,11 @@ augroup AutoRead
   autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk → buffer reloaded" | echohl None
 augroup END
 
+augroup RubyKeywords
+  autocmd!
+  autocmd FileType ruby,eruby,rake,rspec setlocal iskeyword+=?,!,=
+augroup END
+
 
 """ Plugin Configurations
 
