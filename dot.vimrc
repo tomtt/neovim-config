@@ -221,6 +221,7 @@ call plug#begin()
     Plug 'nvim-neotest/neotest'
     Plug 'zidhuss/neotest-minitest'
     Plug 'Wansmer/treesj'
+    Plug 'AndrewRadev/switch.vim'
     Plug 'lewis6991/gitsigns.nvim'
 
     " Themes
@@ -418,3 +419,11 @@ onoremap <silent> <expr> t Op_dispatch_t()
 onoremap <silent> <expr> f Op_dispatch_f()
 onoremap <silent> <expr> T Op_dispatch_T()
 onoremap <silent> <expr> F Op_dispatch_F()
+
+let g:switch_custom_definitions =
+    \ [
+    \ switch#Words(['y', 'n']),
+    \ switch#Words(['yes', 'no']),
+    \ switch#Words(['assert_not', 'assert']),
+    \ switch#Words(['assert_not_includes', 'assert_includes'])
+    \ ]
