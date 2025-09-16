@@ -31,10 +31,10 @@ require("treesj").setup({ use_default_keymaps = false })
 
 require('gitsigns').setup()
 
--- pick keys you like (examples):
+-- code modification mappings
 vim.keymap.set("n", "<leader>mt", require("treesj").toggle, { desc = "Split/Join toggle" })
 vim.keymap.set("n", "<leader>mj", require("treesj").join,   { desc = "Join" })
-vim.keymap.set("n", "<leader>ms", require("treesj").split,  { desc = "Split" })
+vim.keymap.set("n", "<leader>mx", require("treesj").split,  { desc = "Split" })
 
 -- ]m/[m for method navigation (Tree-sitter, robust)
 local function goto_method(next_dir)
@@ -89,8 +89,8 @@ require('telescope').load_extension('fzf')
 require('telescope').load_extension('ui-select')
 
 -- neotest config
-local ok, neotest = pcall(require, "neotest")
-if ok then
+local ok_neotest, neotest = pcall(require, "neotest")
+if ok_neotest then
   neotest.setup({
     adapters = {
       require("neotest-minitest"),
@@ -101,6 +101,14 @@ if ok then
   vim.keymap.set("n", "<leader>ts", neotest.summary.toggle, { desc = "Test: summary" })
   vim.keymap.set("n", "<leader>to", neotest.output.open,                       {desc="Test: output"})
   vim.keymap.set("n", "<leader>ts", neotest.summary.toggle,                    {desc="Test: summary"})
+end
+
+-- yanky config (yank ring picker)
+local ok_yanky, yanky = pcall(require, "yanky")
+if ok_yanky then
+  yanky.setup({})
+  pcall(require("telescope").load_extension, "yank_history")
+  vim.keymap.set("n", "<leader>fy", "<cmd>Telescope yank_history<cr>", { desc = "Yank history" })
 end
 
 -- Treesitter folds

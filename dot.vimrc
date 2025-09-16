@@ -67,6 +67,7 @@ nnoremap <silent> <leader>ft <cmd>Telescope treesitter<CR>
 nnoremap <silent> <leader>fr <cmd>Telescope lsp_references<CR>
 nnoremap <leader>fj <cmd>Telescope jumplist<CR>
 nnoremap <leader>fc :cclose<cr>
+"  <leader>fy is defined in lua/config.lua for finding yanks
 
 " Mapping CtrlP command
 nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
@@ -228,6 +229,7 @@ call plug#begin()
     Plug 'Wansmer/treesj'
     Plug 'AndrewRadev/switch.vim'
     Plug 'lewis6991/gitsigns.nvim'
+    Plug 'gbprod/yanky.nvim'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
