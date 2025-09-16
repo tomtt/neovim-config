@@ -57,7 +57,7 @@ map <leader>B :TagbarToggle<CR>
 " map leader f to search
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
-nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>fb <cmd>Telescope buffers sort_mru=true sort_lastused=true ignore_current_buffer=false<CR>
 nnoremap <leader>fh <cmd>Telescope help_tags<CR>
 " List methods in the current buffer via LSP and jump
 nnoremap <silent> <leader>fm <cmd>Telescope lsp_document_symbols symbols=method,function<CR>
