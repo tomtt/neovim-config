@@ -12,6 +12,16 @@ set encoding=utf-8
 set number
 set numberwidth=3
 set title
+set autoread
+set updatetime=500
+
+augroup AutoRead
+  autocmd!
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI,TermClose,TermLeave *
+        \ if mode() !=# 'c' | silent! checktime | endif
+  autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk → buffer reloaded" | echohl None
+augroup END
+
 
 """ Plugin Configurations
 
