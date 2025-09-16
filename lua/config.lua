@@ -89,19 +89,20 @@ require('telescope').load_extension('fzf')
 require('telescope').load_extension('ui-select')
 
 -- neotest config
-local neotest = require("neotest")
-neotest.setup({
-  adapters = {
-    require("neotest-minitest"),
-  },
-})
+local ok, neotest = pcall(require, "neotest")
+if ok then
+  neotest.setup({
+    adapters = {
+      require("neotest-minitest"),
+    },
+  })
+  vim.keymap.set("n", "<leader>tn", function() neotest.run.run() end, { desc = "Test: nearest" })
+  vim.keymap.set("n", "<leader>tf", function() neotest.run.run(vim.fn.expand("%")) end, { desc = "Test: file" })
+  vim.keymap.set("n", "<leader>ts", neotest.summary.toggle, { desc = "Test: summary" })
+  vim.keymap.set("n", "<leader>to", neotest.output.open,                       {desc="Test: output"})
+  vim.keymap.set("n", "<leader>ts", neotest.summary.toggle,                    {desc="Test: summary"})
+end
 
--- neotest keymaps
-vim.keymap.set("n", "<leader>tn", function() neotest.run.run() end,          {desc="Test: nearest"})
-vim.keymap.set("n", "<leader>tf", function() neotest.run.run(vim.fn.expand("%")) end, {desc="Test: file"})
-vim.keymap.set("n", "<leader>tt", function() neotest.run.run("spec") end,    {desc="Test: suite"})
-vim.keymap.set("n", "<leader>to", neotest.output.open,                       {desc="Test: output"})
-vim.keymap.set("n", "<leader>ts", neotest.summary.toggle,                    {desc="Test: summary"})
 -- Treesitter folds
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
