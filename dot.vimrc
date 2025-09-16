@@ -218,6 +218,7 @@ call plug#begin()
     Plug 'nvim-neotest/nvim-nio'
     Plug 'nvim-neotest/neotest'
     Plug 'zidhuss/neotest-minitest'
+    Plug 'Wansmer/treesj'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
