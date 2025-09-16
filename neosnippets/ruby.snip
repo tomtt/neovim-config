@@ -20,6 +20,15 @@ snippet bd
 snippet bp
   binding.pry
 
+snippet comp
+  # frozen_string_literal: true
+
+  class ${1:#:ClassName}Component < ApplicationComponent
+    def view_template
+      ${0:TARGET}
+    end
+  end
+
 snippet tstcomp
 options word
   require 'test_helper'
