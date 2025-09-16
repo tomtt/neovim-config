@@ -177,6 +177,11 @@ set suffixesadd+=.tsx,.ts,.js,.jsx,.scss,.css,.json
 " Enable copying from vim to the system-clipboard
 set clipboard=unnamedplus
 
+" Make <CR> its own undo step (so one undo removes just the newline)
+inoremap <CR> <C-g>u<CR>
+" <leader>Enter: undo the last insert action (typically that newline) and stay in Insert
+inoremap <leader><CR> <C-o>u
+
 " Vim-plug 
 call plug#begin()
     Plug 'tomtom/tcomment_vim'
