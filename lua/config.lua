@@ -83,6 +83,9 @@ require("which-key").setup({
   disable = { filetypes = { "TelescopePrompt" } },
 })
 
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('ui-select')
+
 -- neotest config
 local neotest = require("neotest")
 neotest.setup({

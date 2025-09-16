@@ -184,6 +184,8 @@ call plug#begin()
     Plug 'slim-template/vim-slim'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'nvim-telescope/telescope-ui-select.nvim'
     Plug 'BurntSushi/ripgrep'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
