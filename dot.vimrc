@@ -27,6 +27,11 @@ augroup RubyKeywords
   autocmd FileType ruby,eruby,rake,rspec setlocal iskeyword+=?,!,=
 augroup END
 
+" Map K to LSP hover when a server attaches (buffer-local)
+augroup LspHoverDocs
+  autocmd!
+  autocmd LspAttach * nnoremap <silent><buffer> <leader>fd <cmd>lua vim.lsp.buf.hover()<CR>
+augroup END
 
 """ Plugin Configurations
 
