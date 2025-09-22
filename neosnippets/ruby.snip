@@ -1,57 +1,104 @@
 snippet dry
-options word
+abbr extend Dry::Initializer with an option
+options head
   extend Dry::Initializer
   option :${1:#:variable}
 
 snippet dri
+abbr extend Dry::Initializer
+options head
   extend Dry::Initializer
 
 snippet dro
-options word
+abbr Dry::Initializer option
+options head
   option :${1:#:variable}
 
 snippet drod
-options word
+abbr Dry::Initializer option with default
+options head
   option :${1:#:variable}, default: -> {}
 
+snippet droh
+abbr Dry::Initializer option hash
+options head
+  ${0}option :${1:variable}, ->($1) { ActiveSupport::HashWithIndifferentAccess.new($1) }
+
 snippet bd
+abbr binding.debugger
+options head
   binding.debugger
 
 snippet bp
+abbr binding.pry
+options head
   binding.pry
 
-snippet comp
+snippet froz
+abbr frozen string literal
+options head
   # frozen_string_literal: true
 
-  class ${1:#:ClassName}Component < ApplicationComponent
+snippet comp
+abbr Component definition
+options head
+  # frozen_string_literal: true
+
+  class ${1:`expand('%:t:r')`}Component < ApplicationComponent
     def view_template
       ${0:TARGET}
     end
   end
 
 snippet phlh
+abbr include Phlex Rails helper
+options head
   include Phlex::Rails::Helpers::${1:#:Helper}
 
-snippet tstcomp
-options word
+snippet compt
+abbr Component test definition
+options head
   require 'test_helper'
-
-  class ${1:#:ClassName}ComponentTest < ComponentTestCase
-    test '${2:#:subject}' do
+  class ${1:`expand('%:t:r')`}ComponentTest < ComponentTestCase
+    test '${2:subject}' do
       ${0:TARGET}
     end
   end
 
 snippet divc
+abbr Add class to div
   div(class: '${0:TARGET}')
 
 snippet spanc
+abbr Add class to span
   span(class: '${0:TARGET}')
 
 snippet test
+abbr test block
   test '${1:#:subject}' do
     ${0:TARGET}
   end
 
 snippet phtml
+abbr puts html in component test
+options head
   puts @page.native.to_xhtml
+
+snippet tsh
+abbr take screenshot html
+options head
+  take_screenshot(html: true)
+
+snippet tss
+abbr take screenshot screenshot only
+options head
+  take_screenshot
+
+snippet tsb
+abbr take screenshot both html and screenshot
+options head
+  take_screenshot(html: true, screenshot: 'artifact')
+
+snippet bhtml
+  require 'htmlbeautifier'
+  puts beautiful = HtmlBeautifier.beautify(body)
