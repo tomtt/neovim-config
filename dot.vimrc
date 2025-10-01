@@ -84,6 +84,8 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 set colorcolumn=131
 set textwidth=130
 set formatoptions=croqj
+" <C-w>c sets width window to textwidth (value >130 because of line number column)
+nnoremap <C-w>c 136<C-w>\|
 
 " augroup KeepBuiltinGq
 "   autocmd!
