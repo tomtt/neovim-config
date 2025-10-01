@@ -126,7 +126,6 @@ set history=100 " keep 100 lines of command line history
 set ruler " show the cursor position all the time
 set showcmd " display incomplete commands
 set incsearch " do incremental searching
-set regexpengine=1 " avoid slow scrolling issue with vim ruby (https://github.com/vim-ruby/vim-ruby/issues/243)
 
 " Disable mouse except when in command mode or on help pages
 set mouse=ch
