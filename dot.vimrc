@@ -301,6 +301,34 @@ nnoremap <Leader>rs :Eschema<Space>
 nnoremap <Leader>ri :Emigration<Space>
 nnoremap <Leader>rt :Rails test<cr>
 
+function! s:IndentFileStick() abort
+  " Save view (for scroll) and precise position
+  let l:view       = winsaveview()
+  let l:lnum       = line('.')
+  let l:old_vcol   = virtcol('.')      " screen column (handles tabs)
+  let l:old_indent = indent(l:lnum)     " indent in spaces
+
+  " Reindent entire buffer
+  keepjumps normal! gg=G
+
+  " Compute how much this line's indent changed
+  let l:new_indent  = indent(l:lnum)
+  let l:delta       = l:new_indent - l:old_indent - 1
+  let l:target_vcol = max([1, l:old_vcol + l:delta])
+
+  " Go back to the same line and same screen column
+  call cursor(l:lnum, 1)
+  execute 'normal! ' . l:target_vcol . '|'
+
+  " Restore scroll/viewport without moving the cursor we just placed
+  let l:view.lnum     = line('.')
+  let l:view.col      = col('.')
+  let l:view.curswant = col('.')
+  call winrestview(l:view)
+endfunction
+
+nnoremap <silent> <leader>= :<C-u>call <SID>IndentFileStick()<CR>
+
 nnoremap <silent> <leader>zr :<C-u>normal! varzc<CR>
 
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
