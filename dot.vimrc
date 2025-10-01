@@ -6,7 +6,7 @@ set termguicolors
 filetype plugin indent on
 set incsearch ignorecase smartcase hlsearch
 set ruler laststatus=2 showcmd showmode
-set fillchars+=vert:\
+set fillchars+=vert:\ 
 set wrap breakindent
 set encoding=utf-8
 set number
