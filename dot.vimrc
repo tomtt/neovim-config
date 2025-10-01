@@ -70,10 +70,6 @@ nnoremap <leader>fj <cmd>Telescope jumplist<CR>
 nnoremap <leader>fc :cclose<cr>
 "  <leader>fy is defined in lua/config.lua for finding yanks
 
-" Mapping CtrlP command
-nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
-nnoremap <Leader>p <cmd>Telescope find_files<CR>
-
 noremap <Leader>de O(require('pry'); binding.pry)<ESC>+
 autocmd FileType javascript noremap <Leader>de Oeval(require('pryjs').it);<ESC>+
 
