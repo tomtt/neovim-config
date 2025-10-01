@@ -6,5 +6,13 @@
   "test/components/*_test.rb": {
     "type": "test",
     "alternate": "app/views/components/{}.rb"
+  },
+  "app/models/concerns/*.rb": {
+    "type": "concern",
+    "alternate": "test/models/concerns/{}_test.rb"
+  },
+  "test/models/concerns/*_test.rb": {
+    "type": "test",
+    "alternate": "app/models/concerns/{}.rb"
   }
 }
