@@ -128,10 +128,8 @@ set showcmd " display incomplete commands
 set incsearch " do incremental searching
 set regexpengine=1 " avoid slow scrolling issue with vim ruby (https://github.com/vim-ruby/vim-ruby/issues/243)
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-" if has('mouse')
-"   set mouse=a
-" endif
+" Disable mouse except when in command mode or on help pages
+set mouse=ch
 
 " Don't wrap long lines
 set nowrap
