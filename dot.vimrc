@@ -110,8 +110,14 @@ vnoremap kj <esc>
 """""""""""""""""""""""""
 " Copy buffer paths <leader>c "
 """""""""""""""""""""""""
+" relative path
 nnoremap <leader>cb :call CopyBufferPath('%')<CR>
-nnoremap <leader>cB :call CopyBufferPath('%:p')<CR>
+" full path
+nnoremap <leader>cf :call CopyBufferPath('%:p')<CR>
+" relative path with line number
+nnoremap <leader>cB :let @+ = expand('%:.') . ':' . line('.') <Bar> echo @+<CR>
+" command to run line as test
+nnoremap <leader>cl :let @+ = 'br test ' . expand('%:.') . ':' . line('.') <Bar> echo @+<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
