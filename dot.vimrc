@@ -185,17 +185,13 @@ inoremap <leader><CR> <C-o>u
 " Vim-plug 
 call plug#begin()
     Plug 'tomtom/tcomment_vim'
-    Plug 'mileszs/ack.vim'
     Plug 'slim-template/vim-slim'
-    Plug 'ctrlpvim/ctrlp.vim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
     Plug 'nvim-telescope/telescope-ui-select.nvim'
-    Plug 'BurntSushi/ripgrep'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-    Plug 'sharkdp/fd'
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
