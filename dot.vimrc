@@ -249,7 +249,7 @@ lua require('config')
 lua require('completion')
 
 " Automatically place a git "=fix" line under the line with the matching sha
-let @f = '/=fix3w"ayw"bdd/^pick a"bp0:s/^pick/fixup/2wr>zz/^fixup'
+let @f = '/=fix3w"ayiw"bdd/^pick a"bp0:s/^pick/fixup/2wr>zz/^fixup'
 
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_disable_lsp = 1
