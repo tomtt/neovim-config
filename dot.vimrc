@@ -7,7 +7,7 @@ filetype plugin indent on
 set incsearch ignorecase smartcase hlsearch
 set ruler laststatus=2 showcmd showmode
 set fillchars+=vert:\ 
-set wrap breakindent
+set nowrap
 set encoding=utf-8
 set number
 set relativenumber
@@ -129,9 +129,6 @@ set incsearch " do incremental searching
 
 " Disable mouse except when in command mode or on help pages
 set mouse=ch
-
-" Don't wrap long lines
-set nowrap
 
 set smarttab
 set autoindent
