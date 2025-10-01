@@ -104,8 +104,40 @@ if ok_neotest then
   vim.keymap.set("n", "<leader>tf", function() neotest.run.run(vim.fn.expand("%")) end, { desc = "Test: file" })
   vim.keymap.set("n", "<leader>ts", neotest.summary.toggle, { desc = "Test: summary" })
   vim.keymap.set("n", "<leader>to", neotest.output.open,                       {desc="Test: output"})
-  vim.keymap.set("n", "<leader>ts", neotest.summary.toggle,                    {desc="Test: summary"})
 end
+
+-- Distinct background for neotest windows (summary + outputs)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "neotest-summary", "neotest-output", "neotest-output-panel" },
+  callback = function()
+    -- Define a custom background color (tweak this hex to taste)
+    vim.api.nvim_set_hl(0, "NeotestWinBg", { bg = "#12020e" })
+
+    -- Make the whole window use that bg (Normal, non-current, signs, and tildes)
+    vim.wo.winhighlight = table.concat({
+      "Normal:NeotestWinBg",
+      "NormalNC:NeotestWinBg",
+      "SignColumn:NeotestWinBg",
+      "EndOfBuffer:NeotestWinBg",
+      "FloatBorder:NeotestWinBg",
+      "CursorLine:NeotestWinBg",
+    }, ",")
+  end,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "NeotestWinBg", { bg = "#12020e" })
+  end,
+})
+
+-- Replace the glyphs to your taste (requires a Nerd Font or similar)
+local define = vim.fn.sign_define
+define("neotest_passed",  { text = "✓", texthl = "NeotestPassed",  numhl = "" })
+define("neotest_failed",  { text = "✗", texthl = "NeotestFailed",  numhl = "" })
+define("neotest_running", { text = "…", texthl = "NeotestRunning", numhl = "" })
+define("neotest_skipped", { text = "-", texthl = "NeotestSkipped", numhl = "" })
+define("neotest_unknown", { text = "?", texthl = "NeotestUnknown", numhl = "" })
 
 -- yanky config (yank ring picker)
 local ok_yanky, yanky = pcall(require, "yanky")
