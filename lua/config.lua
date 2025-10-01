@@ -87,6 +87,10 @@ require("which-key").setup({
 
 -- require('telescope').load_extension('fzf')
 require('telescope').load_extension('ui-select')
+-- LSP code actions (Ruby LSP will include "Disable <Cop> for this line")
+vim.keymap.set({ "n", "v" }, "<leader>ma", function()
+  vim.lsp.buf.code_action()
+end, { desc = "Code actions" })
 
 -- neotest config
 local ok_neotest, neotest = pcall(require, "neotest")
