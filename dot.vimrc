@@ -270,17 +270,17 @@ colorscheme desert
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme = 'catppuccin'
 
-nnoremap <Leader>cc :colorscheme desert<cr> " Default colorscheme is bound as <L>cc
-nnoremap <Leader>cd :colorscheme desert<cr>
-nnoremap <Leader>ct :colorscheme catppuccin-mocha<cr>
-nnoremap <Leader>cg :colorscheme gruvbox<cr>
-nnoremap <Leader>ck :colorscheme sonokai<cr>
-nnoremap <Leader>cl :colorscheme kanagawa-lotus<cr>
-nnoremap <Leader>cm :colorscheme gruvbox-material<cr>
-nnoremap <Leader>cs :colorscheme slate<cr>
-nnoremap <Leader>cv :colorscheme vividchalk<cr>
-nnoremap <Leader>cr :colorscheme railscasts<cr>
-nnoremap <Leader>cw :colorscheme kanagawa-wave<cr>
+nnoremap <Leader>ccc :colorscheme desert<cr> " Default colorscheme is bound as <L>ccc
+nnoremap <Leader>ccd :colorscheme desert<cr>
+nnoremap <Leader>cct :colorscheme catppuccin-mocha<cr>
+nnoremap <Leader>ccg :colorscheme gruvbox<cr>
+nnoremap <Leader>cck :colorscheme sonokai<cr>
+nnoremap <Leader>ccl :colorscheme kanagawa-lotus<cr>
+nnoremap <Leader>ccm :colorscheme gruvbox-material<cr>
+nnoremap <Leader>ccs :colorscheme slate<cr>
+nnoremap <Leader>ccv :colorscheme vividchalk<cr>
+nnoremap <Leader>ccr :colorscheme railscasts<cr>
+nnoremap <Leader>ccw :colorscheme kanagawa-wave<cr>
 
 let g:colors = getcompletion('', 'color')
 func! NextColors()
