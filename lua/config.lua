@@ -183,3 +183,9 @@ end, { desc = "Fold current method" })
 --     vim.bo[buf].tagfunc = 'v:lua.vim.lsp.tagfunc'
 --   end
 -- })
+
+require('nvls').setup()
+vim.api.nvim_create_autocmd('BufEnter', { 
+  command = "syntax sync fromstart",
+  pattern = { '*.ly', '*.ily', '*.tex' }
+})

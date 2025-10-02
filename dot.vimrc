@@ -224,6 +224,7 @@ call plug#begin()
     Plug 'AndrewRadev/switch.vim'
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'gbprod/yanky.nvim'
+    Plug 'martineausimon/nvim-lilypond-suite'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
