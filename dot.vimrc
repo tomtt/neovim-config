@@ -10,7 +10,6 @@ set fillchars+=vert:\
 set nowrap
 set encoding=utf-8
 set number
-set relativenumber
 set numberwidth=3
 set title
 set autoread
