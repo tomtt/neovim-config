@@ -240,7 +240,59 @@ lua require('config')
 lua require('completion')
 
 " Automatically place a git "=fix" line under the line with the matching sha
+" This macro is now hopefully obsolete due to the s:FixupMove() method
 let @f = '/=fix3w"ayiw"bdd/^pick a"bp0:s/^pick/fixup/2wr>zz/^fixup'
+
+" Move a '=fix' commit line below its target commit and mark it '>fix'.
+" Safe: prints a message if no =fix line or target pick is found.
+function! s:FixupMove() abort
+  " 1. Find the first line containing '=fix <sha>'
+  let l:fixlnum = search('^pick\s\+\S\+\s\+=fix', 'n')
+  if l:fixlnum == 0
+    echo "No '=fix' line found"
+    return
+  endif
+
+  " 2. Extract the full line and the target SHA
+  let l:fixline = getline(l:fixlnum)
+  let l:fields = split(l:fixline)
+  if len(l:fields) < 4
+    echo "Malformed '=fix' line: " .. l:fixline
+    return
+  endif
+  let l:fixsha = l:fields[1]
+  let l:targetsha = l:fields[4]
+
+  " 3. Find the matching 'pick <targetsha>' line
+  let l:targetlnum = search('^pick\s\+' . l:targetsha, 'n')
+  if l:targetlnum == 0
+    echo "No 'pick " . l:targetsha . "' found for " . l:fixsha
+    return
+  endif
+
+  " 4. Construct new line: change 'pick' → 'fixup' and '=fix' → '>fix'
+  let l:newline = substitute(l:fixline, '^pick', 'fixup', '')
+  let l:newline = substitute(l:newline, '=fix', '>fix', '')
+
+  " 5. Delete original =fix line
+  call deletebufline('%', l:fixlnum)
+
+  " Adjust target line number if deletion happened above it
+  if l:fixlnum < l:targetlnum
+    let l:targetlnum -= 1
+  endif
+
+  " 6. Insert new line right below the matching pick line
+  call append(l:targetlnum, l:newline)
+
+  " 7. Move cursor to the new fixup line and center screen
+  call cursor(l:targetlnum + 1, 1)
+  normal! zz
+
+  echo "Fixup moved for " . l:fixsha . " -> " . l:targetsha
+endfunction
+
+nnoremap <silent> <leader>mf :<C-u>call <SID>FixupMove()<CR>
 
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_disable_lsp = 1
