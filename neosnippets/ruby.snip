@@ -65,6 +65,14 @@ options head
     end
   end
 
+snippet ast
+abbr ActiveSupport test definition
+options head
+  require 'test_helper'
+
+  class ${1:`expand('%:t:r')`}Test < ActiveSupport::TestCase
+  end
+
 snippet divc
 abbr Add class to div
   div(class: '${0:TARGET}')
