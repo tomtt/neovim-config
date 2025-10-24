@@ -1,8 +1,38 @@
-require('lspconfig').ruby_lsp.setup({
+local lspconfig = require'lspconfig'
+
+lspconfig.ruby_lsp.setup({
   -- Prefer the version-manager shim so it matches your project Ruby:
   cmd = { vim.fn.expand('~/.rbenv/shims/ruby-lsp') },
   -- Optional: init_options for add-ons / formatting limits, etc.
 })
+
+
+local on_rust_attach = function(client, bufnr)
+  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+end
+
+lspconfig.rust_analyzer.setup({
+    on_attach = on_rust_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {silent = true})
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, {silent = true})
 
