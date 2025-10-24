@@ -189,3 +189,8 @@ vim.api.nvim_create_autocmd('BufEnter', {
   command = "syntax sync fromstart",
   pattern = { '*.ly', '*.ily', '*.tex' }
 })
+require("telescope").load_extension("file_browser")
+vim.keymap.set("n", "<leader>fe",
+  ":Telescope file_browser<CR>",
+  { desc = "Browse files" })
+
