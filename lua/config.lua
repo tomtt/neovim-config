@@ -199,26 +199,27 @@ vim.keymap.set("n", "<leader>zm", function()
   end
 end, { desc = "Fold current method" })
 
--- vim.api.nvim_create_autocmd('LspAttach', {
---   callback = function(ev)
---     local buf = ev.buf
---     local map = function(mode, lhs, rhs) vim.keymap.set(mode, lhs, rhs, {buffer = buf}) end
---     map('n','gd', vim.lsp.buf.definition)
---     map('n','gD', vim.lsp.buf.declaration)
---     map('n','gr', vim.lsp.buf.references)
---     map('n','gi', vim.lsp.buf.implementation)
---     map('n','K',  vim.lsp.buf.hover)
---     map('n','<leader>rn', vim.lsp.buf.rename)
---     -- Also make Ctrl-] use LSP tags:
---     vim.bo[buf].tagfunc = 'v:lua.vim.lsp.tagfunc'
---   end
--- })
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local buf = ev.buf
+    local map = function(mode, lhs, rhs) vim.keymap.set(mode, lhs, rhs, {buffer = buf}) end
+    map('n','gd', vim.lsp.buf.definition)
+    map('n','gD', vim.lsp.buf.declaration)
+    map('n','gr', vim.lsp.buf.references)
+    map('n','gi', vim.lsp.buf.implementation)
+    map('n','K',  vim.lsp.buf.hover)
+    map('n','<leader>rn', vim.lsp.buf.rename)
+    -- Also make Ctrl-] use LSP tags:
+    vim.bo[buf].tagfunc = 'v:lua.vim.lsp.tagfunc'
+  end
+})
 
 require('nvls').setup()
 vim.api.nvim_create_autocmd('BufEnter', { 
   command = "syntax sync fromstart",
   pattern = { '*.ly', '*.ily', '*.tex' }
 })
+
 require("telescope").load_extension("file_browser")
 vim.keymap.set("n", "<leader>fe",
   ":Telescope file_browser<CR>",
