@@ -512,3 +512,5 @@ let g:switch_custom_definitions =
     \ switch#Words(['assert_not', 'assert']),
     \ switch#Words(['assert_not_includes', 'assert_includes'])
     \ ]
+
+nnoremap <buffer> <leader>cp :!to_pdf %<Enter>
