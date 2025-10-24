@@ -181,6 +181,8 @@ inoremap <CR> <C-g>u<CR>
 " <leader>Enter: undo the last insert action (typically that newline) and stay in Insert
 inoremap <leader><CR> <C-o>u
 
+cabbrev kp keeppatterns
+
 " Vim-plug 
 call plug#begin()
     Plug 'tomtom/tcomment_vim'
