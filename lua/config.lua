@@ -107,7 +107,9 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- default mappings for leap
-require('leap').set_default_mappings()
+require('leap')
+vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
 
 require("which-key").setup({
   disable = { filetypes = { "TelescopePrompt" } },
