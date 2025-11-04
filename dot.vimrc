@@ -237,6 +237,7 @@ call plug#begin()
     Plug 'morhetz/gruvbox'
     Plug 'sainnhe/gruvbox-material'
     Plug 'sainnhe/sonokai'
+    Plug 'folke/tokyonight.nvim'
     Plug 'tpope/vim-vividchalk' " accentuates rails.vim extensions
     Plug 'jpo/vim-railscasts-theme'
 call plug#end()
@@ -299,20 +300,23 @@ endfunction
 
 nnoremap <silent> <leader>mf :<C-u>call <SID>FixupMove()<CR>
 
-
-colorscheme desert
+colorscheme kanagawa-wave
 let g:airline_theme = 'catppuccin'
 
-nnoremap <Leader>ccc :colorscheme desert<cr> " Default colorscheme is bound as <L>ccc
+nnoremap <Leader>ccc :colorscheme kanagawa-wave<cr> " Default colorscheme is bound as <L>ccc
+nnoremap <Leader>cca :colorscheme kanagawa<cr>
 nnoremap <Leader>ccd :colorscheme desert<cr>
-nnoremap <Leader>cct :colorscheme catppuccin-mocha<cr>
 nnoremap <Leader>ccg :colorscheme gruvbox<cr>
 nnoremap <Leader>cck :colorscheme sonokai<cr>
 nnoremap <Leader>ccl :colorscheme kanagawa-lotus<cr>
 nnoremap <Leader>ccm :colorscheme gruvbox-material<cr>
-nnoremap <Leader>ccs :colorscheme slate<cr>
-nnoremap <Leader>ccv :colorscheme vividchalk<cr>
+nnoremap <Leader>ccn :colorscheme tokyonight-night<cr>
+nnoremap <Leader>ccp :colorscheme catppuccin-mocha<cr>
 nnoremap <Leader>ccr :colorscheme railscasts<cr>
+nnoremap <Leader>ccs :colorscheme slate<cr>
+nnoremap <Leader>cct :colorscheme tokyonight<cr>
+nnoremap <Leader>ccu :colorscheme tokyonight-storm<cr>
+nnoremap <Leader>ccv :colorscheme vividchalk<cr>
 nnoremap <Leader>ccw :colorscheme kanagawa-wave<cr>
 
 let g:colors = getcompletion('', 'color')
