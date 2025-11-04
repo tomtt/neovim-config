@@ -1,36 +1,34 @@
-local lspconfig = require'lspconfig'
+require("lsp-file-operations").setup()
 
-lspconfig.ruby_lsp.setup({
-  -- Prefer the version-manager shim so it matches your project Ruby:
-  cmd = { vim.fn.expand('~/.rbenv/shims/ruby-lsp') },
-  -- Optional: init_options for add-ons / formatting limits, etc.
-})
+local lsp_capabilities = vim.tbl_deep_extend(
+  "force",
+  require("cmp_nvim_lsp").default_capabilities(),
+  require("lsp-file-operations").default_capabilities()
+)
+lsp_capabilities.workspace.didChangeWatchedFiles = {
+  dynamicRegistration = true,
+}
 
-
-local on_rust_attach = function(client, bufnr)
-  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+vim.lsp.enable('ruby-lsp')
+local function on_attach_lsp(client, bufnr)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = false }),
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ bufnr = bufnr, async = false })
+      end,
+    })
+  end
 end
 
-lspconfig.rust_analyzer.setup({
-    on_attach = on_rust_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
+vim.lsp.config('ruby-lsp', {
+  cmd = { vim.fn.expand('~/.rbenv/shims/ruby-lsp') },
+  root_dir  = vim.fs.dirname(vim.fs.find({ "Gemfile", ".git" }, { upward = true })[1]),
+  filetypes = { "ruby", "erb", "rake" },
+  init_options = { formatter = "rubocop" },
+  capabilities = lsp_capabilities,
+  on_attach = on_attach_lsp,
 })
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {silent = true})
@@ -225,3 +223,14 @@ vim.keymap.set("n", "<leader>fe",
   ":Telescope file_browser<CR>",
   { desc = "Browse files" })
 
+vim.keymap.set("n", "z?", vim.diagnostic.open_float, { desc = "Show diagnostics" })
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = "●",
+    spacing = 2,
+  },
+  signs = true,            -- show sign column icons (E/W)
+  underline = true,        -- underline problematic text
+  severity_sort = true,    -- show more serious diagnostics first
+  update_in_insert = false,-- don’t update in Insert mode
+})

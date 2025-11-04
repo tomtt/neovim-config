@@ -206,7 +206,6 @@ call plug#begin()
     " Plug 'ervandew/supertab'
     Plug 'neovim/nvim-lspconfig'
     Plug 'preservim/nerdtree'
-    Plug 'dense-analysis/ale'
     Plug 'vim-airline/vim-airline'
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
@@ -298,23 +297,8 @@ endfunction
 
 nnoremap <silent> <leader>mf :<C-u>call <SID>FixupMove()<CR>
 
-let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_disable_lsp = 1
-let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
-let g:ale_fixers = {'ruby': ['rubocop']}
-let g:ale_ruby_ruby_lsp_use_bundler = 1
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 0
-
-nnoremap <Leader>aa <Plug>(ale_toggle)
-nnoremap <Leader>ae <Plug>(ale_enable)
-nnoremap <Leader>aj <Plug>(ale_next_wrap)
-nnoremap <Leader>ak <Plug>(ale_previous_wrap)
-nnoremap <Leader>al <Plug>(ale_last)
-nnoremap <Leader>af <Plug>(ale_fix)
 
 colorscheme desert
-let g:airline#extensions#ale#enabled = 1
 let g:airline_theme = 'catppuccin'
 
 nnoremap <Leader>ccc :colorscheme desert<cr> " Default colorscheme is bound as <L>ccc
