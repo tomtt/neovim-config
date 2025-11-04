@@ -129,11 +129,17 @@ if ok_neotest then
     adapters = {
       require("neotest-minitest"),
     },
+    watch = {
+      enabled = true,
+    }
   })
   vim.keymap.set("n", "<leader>tn", function() neotest.run.run() end, { desc = "Test: nearest" })
   vim.keymap.set("n", "<leader>tf", function() neotest.run.run(vim.fn.expand("%")) end, { desc = "Test: file" })
   vim.keymap.set("n", "<leader>ts", neotest.summary.toggle, { desc = "Test: summary" })
   vim.keymap.set("n", "<leader>to", neotest.output.open,                       {desc="Test: output"})
+  vim.keymap.set("n", "[e", function() neotest.jump.prev({ status = "failed" }) end, {desc="Test: previous error"})
+  vim.keymap.set("n", "]e", function() neotest.jump.next({ status = "failed" }) end, {desc="Test: next error"})
+  vim.keymap.set("n", "<leader>tw", function() neotest.watch.toggle(vim.fn.expand("%")) end,  {desc="Test: toggle watch"})
 end
 
 -- Distinct background for neotest windows (summary + outputs)
