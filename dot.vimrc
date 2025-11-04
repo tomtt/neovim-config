@@ -504,3 +504,8 @@ let g:switch_custom_definitions =
     \ ]
 
 nnoremap <buffer> <leader>cp :!to_pdf %<Enter>
+
+
+nnoremap <leader>zn :setlocal spell spelllang=nl<Enter>
+nnoremap <leader>ze :setlocal spell spelllang=en<Enter>
+nnoremap <leader>zz :setlocal nospell<Enter>
