@@ -12,7 +12,8 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-n>"]     = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ["<C-p>"]     = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    ["<CR>"]      = cmp.mapping.confirm({ select = true }),
+    ["<Tab>"]      = cmp.mapping.confirm({ select = true }),
+    ["<CR>"]     = cmp.mapping.close(),
     ["<Esc>"]     = cmp.mapping.close(),
   }),
   -- show source labels like [LSP], [Buf], [Path]
@@ -95,8 +96,3 @@ cmp.setup({
     },
   },
 })
-
--- Wire LSP → cmp so LSP completions show up (and rank well)
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("lspconfig").ruby_lsp.setup({ capabilities = capabilities })
-
