@@ -300,10 +300,12 @@ endfunction
 
 nnoremap <silent> <leader>mf :<C-u>call <SID>FixupMove()<CR>
 
-colorscheme kanagawa-wave
+let g:default_colorscheme = "tokyonight"
+execute "colorscheme " . g:default_colorscheme
+
 let g:airline_theme = 'catppuccin'
 
-nnoremap <Leader>ccc :colorscheme kanagawa-wave<cr> " Default colorscheme is bound as <L>ccc
+nnoremap <silent> <Leader>ccc :colorscheme <C-R>=g:default_colorscheme<CR><CR>
 nnoremap <Leader>cca :colorscheme kanagawa<cr>
 nnoremap <Leader>ccd :colorscheme desert<cr>
 nnoremap <Leader>ccg :colorscheme gruvbox<cr>
