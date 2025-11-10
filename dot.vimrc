@@ -231,6 +231,7 @@ call plug#begin()
     Plug 'martineausimon/nvim-lilypond-suite'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'nvim-treesitter/nvim-treesitter-context'
+    Plug 'junegunn/vim-peekaboo'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
