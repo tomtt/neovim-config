@@ -501,8 +501,12 @@ let g:switch_custom_definitions =
     \ [
     \ switch#Words(['y', 'n']),
     \ switch#Words(['yes', 'no']),
+    \ switch#Words(['if', 'unless']),
+    \ switch#Words(['disable', 'enable']),
     \ switch#Words(['assert_not', 'assert']),
-    \ switch#Words(['assert_not_includes', 'assert_includes'])
+    \ switch#Words(['assert_not_includes', 'assert_includes']),
+    \ switch#Words(['a', 'an']),
+    \ switch#Words(['potential_customer', 'non_potential_customer'])
     \ ]
 
 nnoremap <buffer> <leader>cp :!to_pdf %<Enter>
