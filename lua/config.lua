@@ -242,3 +242,12 @@ vim.diagnostic.config({
   severity_sort = true,    -- show more serious diagnostics first
   update_in_insert = false,-- don’t update in Insert mode
 })
+
+require('treesitter-context').setup({
+  enable = true,
+  max_lines = 0,
+  min_window_height = 20, -- don't show if window is tiny
+})
+vim.keymap.set("n", "[c", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { silent = true })

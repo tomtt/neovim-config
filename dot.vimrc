@@ -230,6 +230,7 @@ call plug#begin()
     Plug 'gbprod/yanky.nvim'
     Plug 'martineausimon/nvim-lilypond-suite'
     Plug 'dhruvasagar/vim-table-mode'
+    Plug 'nvim-treesitter/nvim-treesitter-context'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
