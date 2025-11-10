@@ -240,6 +240,7 @@ call plug#begin()
     Plug 'folke/tokyonight.nvim'
     Plug 'tpope/vim-vividchalk' " accentuates rails.vim extensions
     Plug 'jpo/vim-railscasts-theme'
+    Plug 'bluz71/vim-nightfly-colors'
 call plug#end()
 
 lua require('config')
@@ -300,7 +301,7 @@ endfunction
 
 nnoremap <silent> <leader>mf :<C-u>call <SID>FixupMove()<CR>
 
-let g:default_colorscheme = "tokyonight"
+let g:default_colorscheme = "tokyonight-night"
 execute "colorscheme " . g:default_colorscheme
 
 let g:airline_theme = 'catppuccin'
@@ -308,6 +309,7 @@ let g:airline_theme = 'catppuccin'
 nnoremap <silent> <Leader>ccc :colorscheme <C-R>=g:default_colorscheme<CR><CR>
 nnoremap <Leader>cca :colorscheme kanagawa<cr>
 nnoremap <Leader>ccd :colorscheme desert<cr>
+nnoremap <Leader>ccf :colorscheme nightfly<cr>
 nnoremap <Leader>ccg :colorscheme gruvbox<cr>
 nnoremap <Leader>cck :colorscheme sonokai<cr>
 nnoremap <Leader>ccl :colorscheme kanagawa-lotus<cr>
