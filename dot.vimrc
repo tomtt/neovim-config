@@ -232,6 +232,7 @@ call plug#begin()
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'junegunn/vim-peekaboo'
+    Plug 'simnalamburt/vim-mundo'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
@@ -520,3 +521,7 @@ nnoremap <buffer> <leader>cp :!to_pdf %<Enter>
 nnoremap <leader>zn :setlocal spell spelllang=nl<Enter>
 nnoremap <leader>ze :setlocal spell spelllang=en<Enter>
 nnoremap <leader>zz :setlocal nospell<Enter>
+
+set undofile
+set undodir=~/.vim/undo
+nnoremap U :MundoToggle<CR>
