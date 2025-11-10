@@ -175,6 +175,22 @@ define("neotest_running", { text = "…", texthl = "NeotestRunning", numhl = "" 
 define("neotest_skipped", { text = "-", texthl = "NeotestSkipped", numhl = "" })
 define("neotest_unknown", { text = "?", texthl = "NeotestUnknown", numhl = "" })
 
+local ok, telescope = pcall(require, "telescope")
+if ok then
+  telescope.setup({
+    defaults = {
+      layout_strategy = "horizontal",
+      layout_config = {
+        horizontal = {
+          -- make the preview (code) window ~130 columns wide
+          preview_width = 130,
+        },
+        width = 0.95,
+      },
+    },
+  })
+end
+
 -- yanky config (yank ring picker)
 local ok_yanky, yanky = pcall(require, "yanky")
 if ok_yanky then
