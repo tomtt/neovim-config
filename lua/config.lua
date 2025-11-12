@@ -267,3 +267,25 @@ require('treesitter-context').setup({
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context(vim.v.count1)
 end, { silent = true })
+
+local function switch_to_term_or_open()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf)
+      and vim.api.nvim_buf_get_option(buf, "buflisted")
+    then
+      local name = vim.api.nvim_buf_get_name(buf)
+      -- If you name your terminal buffers like "term:foo"
+      if name:match("^term:") then
+        vim.api.nvim_set_current_buf(buf)
+        return
+      end
+    end
+  end
+
+  -- No matching buffer → open a new terminal in current window
+  vim.cmd("terminal")
+end
+
+vim.keymap.set("n", "<leader>ty", switch_to_term_or_open, {
+  desc = "Switch to or open terminal in this window",
+})
