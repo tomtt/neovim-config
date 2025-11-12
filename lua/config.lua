@@ -289,3 +289,12 @@ end
 vim.keymap.set("n", "<leader>ty", switch_to_term_or_open, {
   desc = "Switch to or open terminal in this window",
 })
+
+require("tokyonight").setup({
+  on_highlights = function(hl, colors)
+    hl.ColorColumn = {
+      -- bg = colors.bg_highlight,
+      bg = "#4b121d",
+    }
+  end,
+})
