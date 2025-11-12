@@ -105,6 +105,7 @@ inoremap kj <esc>
 " ,k is already an emmet command, but I often want to add a comma and esc
 inoremap ,kj ,<esc>
 vnoremap kj <esc>
+tnoremap kj <C-\><C-n>
 
 """""""""""""""""""""""""
 " Copy buffer paths <leader>c "
