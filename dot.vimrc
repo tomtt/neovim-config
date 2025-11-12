@@ -234,6 +234,7 @@ call plug#begin()
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'junegunn/vim-peekaboo'
     Plug 'simnalamburt/vim-mundo'
+    Plug 'HiPhish/rainbow-delimiters.nvim'
 
     " Themes
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
